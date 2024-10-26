@@ -1,143 +1,66 @@
 package edu.farmingdale.csc311week7homework.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import edu.farmingdale.csc311week7homework.Person;
 
-/**
- *
- * @author Kervin Francois
- */
+import java.sql.*;
+
 public class ConnDbOps {
-    final String MYSQL_SERVER_URL = "jdbc:mysql://francois-server.mysql.database.azure.com/";
     final String DB_URL = "jdbc:mysql://francois-server.mysql.database.azure.com/DBname";
     final String USERNAME = "kfrancois";
     final String PASSWORD = "farmingdale#1030";
 
-    public  boolean connectToDatabase() {
-        boolean hasRegistredUsers = false;
-
-
-        //Class.forName("com.mysql.jdbc.Driver");
+    public void connectToDatabase() {
         try {
-            //First, connect to MYSQL server and create the database if not created
-            Connection conn = DriverManager.getConnection(MYSQL_SERVER_URL, USERNAME, PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             Statement statement = conn.createStatement();
-            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS DBname");
-            statement.close();
-            conn.close();
-
-            //Second, connect to the database and create the table "users" if cot created
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            statement = conn.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS users ("
-                    + "id INT( 10 ) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
-                    + "name VARCHAR(200) NOT NULL,"
-                    + "email VARCHAR(200) NOT NULL UNIQUE,"
-                    + "phone VARCHAR(200),"
-                    + "address VARCHAR(200),"
-                    + "password VARCHAR(200) NOT NULL"
-                    + ")";
+            String sql = "CREATE TABLE IF NOT EXISTS users (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "name VARCHAR(200), email VARCHAR(200) UNIQUE, " +
+                    "phone VARCHAR(200), address VARCHAR(200), " +
+                    "password VARCHAR(200))";
             statement.executeUpdate(sql);
-
-            //check if we have users in the table users
-            statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM users");
-
-            if (resultSet.next()) {
-                int numUsers = resultSet.getInt(1);
-                if (numUsers > 0) {
-                    hasRegistredUsers = true;
-                }
-            }
-
             statement.close();
             conn.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return hasRegistredUsers;
-    }
-
-    public  void queryUserByName(String name) {
-
-
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "SELECT * FROM users WHERE name = ?";
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String email = resultSet.getString("email");
-                String phone = resultSet.getString("phone");
-                String address = resultSet.getString("address");
-                System.out.println("ID: " + id + ", Name: " + name + ", Email: " + email + ", Phone: " + phone + ", Address: " + address);
-            }
-
-            preparedStatement.close();
-            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public  void listAllUsers() {
-
-
-
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "SELECT * FROM users ";
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String email = resultSet.getString("email");
-                String phone = resultSet.getString("phone");
-                String address = resultSet.getString("address");
-                System.out.println("ID: " + id + ", Name: " + name + ", Email: " + email + ", Phone: " + phone + ", Address: " + address);
-            }
-
-            preparedStatement.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public  void insertUser(String name, String email, String phone, String address, String password) {
-
-
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+    public void insertUser(Person person) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
             String sql = "INSERT INTO users (name, email, phone, address, password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, phone);
-            preparedStatement.setString(4, address);
-            preparedStatement.setString(5, password);
+            preparedStatement.setString(1, person.getFirstName() + " " + person.getLastName());
+            preparedStatement.setString(2, "dummy@example.com"); // Replace with actual
+            preparedStatement.setString(3, "123-456-7890");  // Replace with actual
+            preparedStatement.setString(4, "Some Address");  // Replace with actual
+            preparedStatement.setString(5, "password123");  // Replace with actual
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-            int row = preparedStatement.executeUpdate();
+    public void updateUser(Person person) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
+            String sql = "UPDATE users SET name = ?, dept = ?, major = ? WHERE id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, person.getFirstName() + " " + person.getLastName());
+            preparedStatement.setString(2, person.getDept());
+            preparedStatement.setString(3, person.getMajor());
+            preparedStatement.setInt(4, person.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-            if (row > 0) {
-                System.out.println("A new user was inserted successfully.");
-            }
-
-            preparedStatement.close();
-            conn.close();
+    public void deleteUser(int id) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
+            String sql = "DELETE FROM users WHERE id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
