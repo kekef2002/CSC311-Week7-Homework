@@ -1,5 +1,6 @@
 package edu.farmingdale.csc311week7homework;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,8 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
+import java.net.URL;
 
 public class DB_Application extends Application {
 
@@ -34,12 +37,37 @@ public class DB_Application extends Application {
 
     private void showScene1() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("db_interface_gui.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
             Scene scene = new Scene(root, 850, 560);
             createMenu(scene);
             toggleTheme(scene);
             primaryStage.setScene(scene);
             primaryStage.show();
+            changeScene();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeScene() {
+        try {
+            Parent newRoot = FXMLLoader.load(getClass().getResource("db_interface_gui.fxml"));
+
+            Scene currentScene = primaryStage.getScene();
+            Parent currentRoot = currentScene.getRoot();
+            currentScene.getStylesheets().add("style.css");
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), currentRoot);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setOnFinished(e -> {
+
+
+                Scene newScene = new Scene(newRoot,850, 560);
+                primaryStage.setScene(newScene);
+
+            });
+
+            fadeOut.play();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,10 +114,12 @@ public class DB_Application extends Application {
     // Toggle between dark and light themes
     private void toggleTheme(Scene scene) {
         scene.getStylesheets().clear();
-        if (isDarkMode) {
-            scene.getStylesheets().add(getClass().getResource("light-theme.css").toExternalForm());
+        String themePath = isDarkMode ? "/styling/light-theme.css" : "/styling/dark-theme.css";
+        URL themeURL = getClass().getResource(themePath);
+        if (themeURL != null) {
+            scene.getStylesheets().add(themeURL.toExternalForm());
         } else {
-            scene.getStylesheets().add(getClass().getResource("dark-theme.css").toExternalForm());
+            System.out.println("Theme file not found at: " + themePath);
         }
         isDarkMode = !isDarkMode;
     }
