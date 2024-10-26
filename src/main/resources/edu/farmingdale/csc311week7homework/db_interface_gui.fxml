@@ -125,6 +125,6 @@
         </BorderPane>
     </children>
     <stylesheets>
-        <String fx:value="C:\Users\kekef\IdeaProjects\CSC311-Week7-Homework\styling\style.css"/>
+        <String fx:value="@style.css"/>
     </stylesheets>
 </AnchorPane>

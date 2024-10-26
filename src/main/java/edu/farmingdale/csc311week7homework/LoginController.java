@@ -1,4 +1,4 @@
-package edu.farmingdale.csc311week7homework.db;
+package edu.farmingdale.csc311week7homework;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
