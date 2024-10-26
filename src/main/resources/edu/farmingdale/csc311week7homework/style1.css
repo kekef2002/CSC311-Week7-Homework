@@ -1,0 +1,39 @@
+.root {
+    -fx-font-size: 14px;
+}
+
+.v9_4 {
+    -fx-background-color: rgba(164, 109, 109, 1);
+}
+
+.v9_5, .v9_7 {
+    -fx-text-fill: rgba(0, 0, 0, 1);
+    -fx-font-family: "Inria Serif";
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.v10_95 {
+    -fx-text-fill: rgba(0, 0, 0, 1);
+    -fx-font-family: "Inria Serif";
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+}
+
+.v9_20, .v9_22 {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+
+.v9_35, .v9_46 {
+    -fx-background-color: rgba(32, 98, 95, 1);
+    -fx-padding: 14px 24px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.05), 1, 0, 0, 1);
+}
+
+.v9_36, .v9_47 {
+    -fx-text-fill: rgba(255, 255, 255, 1);
+    -fx-font-family: "Inter";
+    -fx-font-weight: bold;  /* Changed from 'medium' to 'bold' */
+    -fx-font-size: 24px;
+}

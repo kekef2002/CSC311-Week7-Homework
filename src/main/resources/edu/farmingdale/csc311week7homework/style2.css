@@ -1,0 +1,39 @@
+.root {
+    -fx-font-size: 14px;
+}
+
+.v10_52 {
+    -fx-background-color: rgba(164, 109, 109, 1);
+}
+
+.v10_53, .v10_54, .v10_55, .v10_56, .v10_59, .v10_60 {
+    -fx-text-fill: rgba(0, 0, 0, 1);
+    -fx-font-family: "Inria Serif";
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.v10_99 {
+    -fx-text-fill: rgba(0, 0, 0, 1);
+    -fx-font-family: "Inria Serif";
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+}
+
+.v10_68, .v10_69, .v10_70, .v10_71, .v10_74, .v10_75 {
+    -fx-background-color: rgba(255, 255, 255, 1);
+}
+
+.v10_83, .v10_89 {
+    -fx-background-color: rgba(32, 98, 95, 1);
+    -fx-padding: 14px 24px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.05), 1, 0, 0, 1);
+}
+
+.v10_84, .v10_90 {
+    -fx-text-fill: rgba(255, 255, 255, 1);
+    -fx-font-family: "Inter";
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}

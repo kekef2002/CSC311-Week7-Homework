@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="root" prefWidth="850" prefHeight="636" styleClass="v10_52" xmlns:fx="http://javafx.com/fxml">
+    <Label text="Registration Page" layoutX="262" layoutY="65" styleClass="v10_99"/>
+    <Label text="First Name" layoutX="198" layoutY="139" styleClass="v10_53"/>
+    <Label text="Last Name" layoutX="199" layoutY="199" styleClass="v10_54"/>
+    <Label text="Username" layoutX="197" layoutY="259" styleClass="v10_55"/>
+    <Label text="Password" layoutX="198" layoutY="319" styleClass="v10_56"/>
+    <Label text="Confirm Password" layoutX="198" layoutY="379" styleClass="v10_60"/>
+    <Label text="Email" layoutX="199" layoutY="439" styleClass="v10_59"/>
+
+    <Region layoutX="195" layoutY="169" prefWidth="458" prefHeight="30" styleClass="v10_68"/>
+    <Region layoutX="195" layoutY="229" prefWidth="458" prefHeight="30" styleClass="v10_69"/>
+    <Region layoutX="195" layoutY="289" prefWidth="458" prefHeight="30" styleClass="v10_70"/>
+    <Region layoutX="195" layoutY="349" prefWidth="458" prefHeight="30" styleClass="v10_71"/>
+    <Region layoutX="195" layoutY="409" prefWidth="458" prefHeight="30" styleClass="v10_75"/>
+    <Region layoutX="195" layoutY="469" prefWidth="458" prefHeight="30" styleClass="v10_74"/>
+
+    <Pane layoutX="195" layoutY="529" prefWidth="457" prefHeight="34" styleClass="v10_89">
+        <Label text="Register" layoutX="180" layoutY="1" styleClass="v10_90"/>
+    </Pane>
+
+    <Pane layoutX="195" layoutY="577" prefWidth="457" prefHeight="34" styleClass="v10_83">
+        <Label text="Login" layoutX="196" layoutY="1" styleClass="v10_84"/>
+    </Pane>
+</Pane>

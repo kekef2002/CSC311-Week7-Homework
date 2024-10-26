@@ -12,7 +12,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -49,6 +48,31 @@ public class DB_Application extends Application {
         }
     }
 
+//    public void changeScene() {
+//        try {
+//            Parent newRoot = FXMLLoader.load(getClass().getResource("login-page.fxml"));
+//
+//            Scene currentScene = primaryStage.getScene();
+//            Parent currentRoot = currentScene.getRoot();
+//            currentScene.getStylesheets().add("style1.css");
+//            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), currentRoot);
+//            fadeOut.setFromValue(1);
+//            fadeOut.setToValue(0);
+//            fadeOut.setOnFinished(e -> {
+//
+//
+//                Scene newScene = new Scene(newRoot,850, 560);
+//                primaryStage.setScene(newScene);
+//
+//            });
+//
+//            fadeOut.play();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    //
     public void changeScene() {
         try {
             Parent newRoot = FXMLLoader.load(getClass().getResource("db_interface_gui.fxml"));
@@ -72,6 +96,7 @@ public class DB_Application extends Application {
             e.printStackTrace();
         }
     }
+    //
 
     private void createMenu(Scene scene) {
         MenuBar menuBar = new MenuBar();

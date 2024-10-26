@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="root" prefWidth="850" prefHeight="636" styleClass="v9_4" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.farmingdale.kervin_demo.HelloController">
+    <Label fx:id="welcomeText" text="Login Page" layoutX="53" layoutY="83" styleClass="v10_95"/>
+    <Label text="Username" layoutX="76" layoutY="152" styleClass="v9_5"/>
+    <Label text="Password" layoutX="76" layoutY="252" styleClass="v9_7"/>
+
+    <Region layoutX="76" layoutY="203" prefWidth="458" prefHeight="40" styleClass="v9_20"/>
+    <Region layoutX="76" layoutY="303" prefWidth="458" prefHeight="40" styleClass="v9_22"/>
+
+    <Pane layoutX="76" layoutY="449" prefWidth="458" prefHeight="34" styleClass="v9_35">
+        <Label text="Create Your Account" layoutX="110" layoutY="1" styleClass="v9_36"/>
+    </Pane>
+
+    <Pane layoutX="76" layoutY="376" prefWidth="458" prefHeight="34" styleClass="v9_46">
+        <Label text="Sign in with username" layoutX="102" layoutY="1" styleClass="v9_47"/>
+    </Pane>
+</Pane>
