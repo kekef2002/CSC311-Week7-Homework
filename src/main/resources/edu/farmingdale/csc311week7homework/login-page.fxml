@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="root" prefWidth="850" prefHeight="636" styleClass="v9_4" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.farmingdale.kervin_demo.HelloController">
+<Pane fx:id="root" prefWidth="850" prefHeight="636" styleClass="v9_4" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.farmingdale.csc311week7homework.db.LoginController">
     <Label fx:id="welcomeText" text="Login Page" layoutX="53" layoutY="83" styleClass="v10_95"/>
     <Label text="Username" layoutX="76" layoutY="152" styleClass="v9_5"/>
     <Label text="Password" layoutX="76" layoutY="252" styleClass="v9_7"/>
