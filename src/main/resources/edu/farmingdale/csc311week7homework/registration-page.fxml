@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.text.Font?>
 
-<Pane fx:id="root" prefWidth="850" prefHeight="636" styleClass="v10_52" xmlns:fx="http://javafx.com/fxml">
-    <Label text="Registration Page" layoutX="262" layoutY="65" styleClass="v10_99"/>
-    <Label text="First Name" layoutX="198" layoutY="139" styleClass="v10_53"/>
-    <Label text="Last Name" layoutX="199" layoutY="199" styleClass="v10_54"/>
-    <Label text="Username" layoutX="197" layoutY="259" styleClass="v10_55"/>
-    <Label text="Password" layoutX="198" layoutY="319" styleClass="v10_56"/>
-    <Label text="Confirm Password" layoutX="198" layoutY="379" styleClass="v10_60"/>
-    <Label text="Email" layoutX="199" layoutY="439" styleClass="v10_59"/>
-
-    <Region layoutX="195" layoutY="169" prefWidth="458" prefHeight="30" styleClass="v10_68"/>
-    <Region layoutX="195" layoutY="229" prefWidth="458" prefHeight="30" styleClass="v10_69"/>
-    <Region layoutX="195" layoutY="289" prefWidth="458" prefHeight="30" styleClass="v10_70"/>
-    <Region layoutX="195" layoutY="349" prefWidth="458" prefHeight="30" styleClass="v10_71"/>
-    <Region layoutX="195" layoutY="409" prefWidth="458" prefHeight="30" styleClass="v10_75"/>
-    <Region layoutX="195" layoutY="469" prefWidth="458" prefHeight="30" styleClass="v10_74"/>
-
-    <Pane layoutX="195" layoutY="529" prefWidth="457" prefHeight="34" styleClass="v10_89">
-        <Label text="Register" layoutX="180" layoutY="1" styleClass="v10_90"/>
-    </Pane>
-
-    <Pane layoutX="195" layoutY="577" prefWidth="457" prefHeight="34" styleClass="v10_83">
-        <Label text="Login" layoutX="196" layoutY="1" styleClass="v10_84"/>
-    </Pane>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<Pane fx:id="root" prefWidth="850" prefHeight="636" styleClass="v10_52" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.farmingdale.csc311week7homework.LoginController">
+    <stylesheets>
+        <URL value="@style2.css" />
+    </stylesheets>
+    <Label layoutX="262" layoutY="65" styleClass="v10_99" text="Registration Page" />
+    <Label layoutX="198" layoutY="139" styleClass="v10_53" text="First Name" />
+    <Label layoutX="199" layoutY="199" styleClass="v10_54" text="Last Name" />
+    <Label layoutX="197" layoutY="259" styleClass="v10_55" text="Username" />
+    <Label layoutX="198" layoutY="319" styleClass="v10_56" text="Password" />
+    <Label layoutX="198" layoutY="379" styleClass="v10_60" text="Confirm Password" />
+    <Label layoutX="199" layoutY="439" styleClass="v10_59" text="Email" />
+    <TextField fx:id="first_name_text_field" layoutX="195.0" layoutY="169.0" prefHeight="30.0" prefWidth="458.0" styleClass="v10_68" />
+    <TextField fx:id="last_name_text_field" layoutX="195.0" layoutY="229.0" prefHeight="30.0" prefWidth="458.0" styleClass="v10_69" />
+    <TextField fx:id="username_text_field" layoutX="195.0" layoutY="289.0" prefHeight="30.0" prefWidth="458.0" styleClass="v10_70" />
+    <TextField fx:id="password_text_field" layoutX="195.0" layoutY="349.0" prefHeight="30.0" prefWidth="458.0" styleClass="v10_71" />
+    <TextField fx:id="confirm_password_text_field" layoutX="195.0" layoutY="409.0" prefHeight="30.0" prefWidth="458.0" styleClass="v10_75" />
+    <TextField fx:id="email_text_field" layoutX="195.0" layoutY="469.0" prefHeight="30.0" prefWidth="458.0" styleClass="v10_74" />
+    <Button fx:id="register_button" layoutX="195.0" layoutY="529.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="457.0" text="Register" />
+    <Button fx:id="login_button" layoutX="195.0" layoutY="577.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="457.0" text="Login" />
 </Pane>
