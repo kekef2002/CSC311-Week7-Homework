@@ -51,7 +51,7 @@ public class SplashScreen {
                 fadeOut.setFromValue(1);
                 fadeOut.setToValue(0);
                 fadeOut.setOnFinished(e -> {
-                    Scene newScene = new Scene(newRoot, 850, 560);
+                    Scene newScene = new Scene(newRoot, 850, 636);
                     secondaryStage.setScene(newScene);
                 });
 
